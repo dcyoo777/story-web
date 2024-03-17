@@ -1,6 +1,6 @@
 import {CommonRequests} from './commonRequests'
 
-class Story {
+export class Story {
 
     storyId: number
     title: string
@@ -21,15 +21,33 @@ class Story {
         this.createdAt = createdAt
         this.updatedAt = updatedAt
     }
+
+    static makeStory(item: any) {
+        const isValid = item?.storyId && item?.title && item?.content;
+
+        if (isValid) {
+            return new Story({
+                storyId: item.storyId,
+                title: item.title,
+                content: item.content,
+                createdAt: item.createdAt,
+                updatedAt: item.updatedAt,
+            })
+        }
+    }
 }
 
-class StoryReq extends CommonRequests {
+export class StoryReq extends CommonRequests {
+
+    constructor({baseUrl}: {baseUrl: string}) {
+        super({baseUrl});
+    }
 
     async getAll(): Promise<Story[]> {
         return (await super.getAll()).map(item => new Story(item))
     }
 
-    async getOneByPk(pk: any): Promise<Story> {
+    async getOneByPk(pk: number): Promise<Story> {
         return new Story(await super.getOneByPk(pk))
     }
 
@@ -42,3 +60,5 @@ class StoryReq extends CommonRequests {
     }
 
 }
+
+export const storyReq = new StoryReq({baseUrl: 'http://localhost:8080/story'})

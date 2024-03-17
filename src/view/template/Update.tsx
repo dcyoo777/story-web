@@ -1,11 +1,11 @@
 import React from 'react';
 import {useOutletContext} from "react-router-dom";
 
-// Detail.prototype = {
+// Update.prototype = {
 //     name: string
 // }
 
-function Detail() {
+function Update() {
 
     const cont = useOutletContext();
 
@@ -14,4 +14,4 @@ function Detail() {
     );
 }
 
-export default Detail;
+export default Update;

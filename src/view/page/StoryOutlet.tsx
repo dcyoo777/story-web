@@ -1,12 +1,8 @@
 import React, {useCallback, useMemo} from 'react';
 import {Outlet} from "react-router-dom";
-import {Story, storyReq, StoryReq} from "../../server/story";
+import {Story, storyReq} from "../../server/story";
 
-Story.propTypes = {
-
-};
-
-function Story() {
+function StoryOutlet() {
 
     const props = useMemo(() => [
         { key: 'storyId', label: 'ID', type: 'number' },
@@ -18,8 +14,16 @@ function Story() {
 
     const getAll = useCallback(async() => await storyReq.getAll(), [])
     const getOneByPk = useCallback(async(pk: any) => await storyReq.getOneByPk(pk), [])
-    const createItem = useCallback(async(item: any) => await storyReq.create(new Story(item)), [])
-    const updateItem = useCallback(async(pk: any, item: any) => await storyReq.update(pk, new Story(item)), [])
+    const createItem = useCallback(async(item: any) => {
+        const story = Story.makeStory(item);
+        if (!story) { return }
+        return await storyReq.create(story)
+    }, [])
+    const updateItem = useCallback(async(pk: any, item: any) => {
+        const story = Story.makeStory(item);
+        if (!story) { return }
+        return await storyReq.update(story)
+    }, [])
     const deleteItem = useCallback(async(pk: any) => await storyReq.delete(pk), [])
 
     return (
@@ -27,4 +31,4 @@ function Story() {
     );
 }
 
-export default Story;
+export default StoryOutlet;
