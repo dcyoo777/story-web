@@ -1,0 +1,37 @@
+@import "src/view/styles/variable";
+@import "src/view/styles/fonts";
+
+#InPageTab{
+  display: flex;
+  flex-direction: column;
+
+  .tab-container{
+    display: flex;
+    gap: 12px;
+  }
+  .in-page-content{
+    display: flex;
+    flex: 1;
+    width: 100%;
+  }
+}
+
+.tab{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 14px;
+  background-color: $white;
+  color: $grey01;
+  border: 1px solid $lGrey02;
+  border-radius: 12px;
+  cursor: pointer;
+  @include P4-M;
+
+  &.selected{
+    background-color: $blue01;
+    border: 1px solid $blue01;
+    color: $lGrey03;
+  }
+
+}

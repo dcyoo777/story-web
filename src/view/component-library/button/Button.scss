@@ -1,0 +1,38 @@
+@import 'src/view/styles/variable';
+@import 'src/view/styles/fonts';
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 252px;
+    height: 40px;
+    border-radius: 6px;
+    @include SH3;
+    transition: 0.2s;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+}
+
+.primary{
+    background-color: $blue01;
+    color: $white;
+}
+
+.error {
+    background-color: $red01;
+    color: $white;
+}
+
+.secondary {
+    background-color: $blue03;
+    color: $blue01;
+}
+
+.default{
+    color: $sBlack01;
+    background-color: $grey03;
+}

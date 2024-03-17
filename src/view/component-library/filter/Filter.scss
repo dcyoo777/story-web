@@ -1,0 +1,167 @@
+@import 'src/view/styles/variable';
+@import 'src/view/styles/fonts';
+
+.filter {
+    position: fixed;
+    top: $header-height;
+    right: -300px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 300px;
+    gap: 30px;
+    height: calc(100% - $header-height);
+    border: 1px solid $lGrey02;
+    z-index: 100;
+    background-color: $white;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    transition: all ease-in-out 0.3s;
+    &.open {
+        right: 0;
+    }
+
+    .filter-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .filter-left{
+            display: flex;
+            align-items: center;
+            .filter-icon{
+                width: 16px;
+                object-fit: contain;
+                margin-right: 4px;
+            }
+            .filter-title{
+                @include P2-M;
+                color: $sBlack01;
+            }
+        }
+        .filter-close{
+            width: 24px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+    }
+
+    .filter-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        .filter-options{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            .option {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                &-label {
+                    @include P3-M130;
+                    color: $sBlack01;
+                    margin-bottom: 10px;
+                }
+
+                .option-multi-selects{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    .option-multi-select-row{
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        @include P3-M130;
+                        color: $grey01;
+                    }
+                }
+
+                .filter-select{
+                    -webkit-appearance: none;
+                    /* 크롬 화살표 없애기 */
+                    -moz-appearance: none;
+                    /* 파이어폭스 화살표 없애기 */
+                    appearance: none;
+                    /* 화살표 없애기 */
+                    //width: 400px;
+                    height: 36px;
+                    border: solid 1.5px $lGrey02;
+                    border-radius: 6px;
+                    padding: 0 10px;
+                    @include P3-M130;
+                    background: url('../../assets/image/select-arrow.svg') no-repeat right 10px center;
+                    color: $grey02;
+
+                    &:focus {
+                        border: solid 1.5px $blue01;
+                    }
+
+                    &:disabled {
+                        border: solid 1.5px $lGrey02;
+                        appearance: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        outline: none;
+                    }
+                }
+
+                //input[type='text'],
+                //input[type='number'],
+                //input[type='datetime-local']
+
+                input[type='checkbox'] {
+                    border: 1.5px solid $grey02;
+                    border-radius:6px;
+                    background-color: #fff;
+                    cursor: pointer;
+                    appearance: none;
+                    width: 20px;
+                    height: 20px;
+                    margin: 0 6px 0 0;
+
+                    &:checked {
+                        border: none;
+                        border-radius: 6px;
+                        background-image: url("../../assets/image/checkbox-check.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        cursor: pointer;
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    &:disabled {
+                        cursor: default;
+                    }
+                }
+
+                input:not([type='checkbox'], [type='radio']) {
+                    width: 100%;
+                    height: 36px;
+                    padding: 0 10px;
+                    outline: none;
+                    border: solid 1.5px $lGrey02;
+                    border-radius: 6px;
+                    transition: border 0.15s ease-in-out;
+
+                    &::placeholder{
+                        @include P3-R;
+                        color: $grey02;
+                    }
+
+                    &:focus {
+                        border: solid 1.5px $blue01;
+                    }
+                }
+            }
+        }
+        .attach-button {
+            display: flex;
+            flex-shrink: 0;
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+@import 'src/view/styles/variable';
+@import 'src/view/styles/fonts';
+
+.list-template {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    .list-template-header{
+        display: flex;
+        justify-content: space-between;
+        .list-template-title{
+            color: $sBlack01;
+            @include H6;
+        }
+        .list-template-filter{
+            display: flex;
+            padding: 4px 10px;
+            background-color: $grey03;
+            color: $sBlack01;
+            border-radius: 4px;
+            cursor: pointer;
+            @include P3-M130;
+            .list-template-filter-icon{
+                width: 16px;
+                object-fit: contain;
+                margin-right: 2px;
+            }
+        }
+    }
+
+    .dash-line {
+        width: 100%;
+        height: 1px;
+        margin: 20px 0;
+        border: 1px solid $lGrey02;
+    }
+}

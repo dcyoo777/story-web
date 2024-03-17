@@ -1,0 +1,82 @@
+@import 'src/view/styles/variable';
+@import 'src/view/styles/fonts';
+
+.grid-table {
+    display: grid;
+    grid-template-columns: 1fr;
+    &-header{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        &-title {
+            @include H6;
+        }
+    }
+
+    .grid-table-head{
+        display: grid;
+        border-bottom: 1px solid $lGrey02;
+        background-color: $lGrey03;
+        .grid-table-head-cell{
+            display: flex;
+            padding: 12px 10px;
+            @include P4-M;
+            color: $grey01;
+            justify-content: center;
+        }
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 1fr);
+        border-bottom: 1px solid $lGrey02;
+        transition: 0.2s;
+
+        &:nth-child(odd) {
+            background-color: $lGrey03;
+        }
+
+        .cell {
+            display: flex;
+            align-items: center;
+            padding: 12px 10px;
+            color: $sBlack01;
+            word-break: break-all;
+            justify-content: center;
+
+            @include P3-R;
+
+            &.link {
+                padding: 4px 0;
+                border-radius: 6px;
+                transition: background-color 0.2s;
+            }
+
+            .grid-table-image {
+                width: 100px;
+                height: 100px;
+                border-radius: 8px;
+                border: solid 1px $lGrey02;
+                object-fit: cover;
+            }
+        }
+
+        &:hover {
+            background-color: $lGrey02;
+        }
+
+        //&.head {
+        //    font-weight: 700;
+        //    background-color: $main-color;
+        //
+        //    .cell {
+        //        @include P3-M130;
+        //        color: $white-color;
+        //    }
+        //
+        //    &:hover {
+        //        background-color: $main-color;
+        //    }
+        //}
+    }
+}

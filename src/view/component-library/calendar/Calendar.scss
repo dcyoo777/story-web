@@ -1,0 +1,122 @@
+$sunday-color: red;
+$saturday-color: blue;
+$background-color: white;
+$border-color: #555555;
+$hover-color: #e0e0e0;
+$cell-height: 120px;
+
+.calendar {
+    .header {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 60px 60px 1fr 60px 60px;
+        column-gap: 10px;
+    }
+    .title-wrapper-out {
+        // position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    .title-wrapper-in {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        align-items: center;
+        // margin: 0 auto;
+        // width: 100%;
+    }
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 6px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            border-radius: 10px;
+            background-color: $hover-color;
+        }
+    }
+    .select-month {
+        position: absolute;
+        display: flex;
+        top: 32px;
+        background-color: $background-color;
+        z-index: 10;
+        select {
+            width: 60px;
+        }
+        button {
+            width: 60px;
+            border: solid 1px $border-color;
+        }
+    }
+
+    .move-button {
+        width: 60px;
+        height: 30px;
+        border: solid 1px $border-color;
+        border-radius: 4px;
+        &:hover {
+            scale: 1.05;
+            background-color: $hover-color;
+        }
+    }
+    .weekday {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 28px;
+        column-gap: 2px;
+        margin-top: 16px;
+    }
+    .weekday-cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+        border: solid 1px $border-color;
+        font-weight: bold;
+    }
+    .date-container {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(auto-fill, 1fr);
+        row-gap: 2px;
+        column-gap: 2px;
+        margin-top: 8px;
+    }
+    .date-cell {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: $cell-height;
+        padding: 8px;
+        border: solid 1px $border-color;
+        background-color: $background-color;
+        transition: 0.2s;
+
+        &-label {
+            width: 100%;
+            text-align: left;
+            .sunday {
+                color: $sunday-color;
+            }
+
+            .saturday {
+                color: $saturday-color;
+            }
+        }
+    }
+
+    .sunday {
+        color: $sunday-color;
+    }
+
+    .saturday {
+        color: $saturday-color;
+    }
+}

@@ -1,0 +1,107 @@
+@import 'src/view/styles/variable';
+@import 'src/view/styles/fonts';
+
+.grid-horizonal-input-table {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    // min-width: 1000px;
+    overflow: auto;
+
+    &-title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 36px;
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 1fr);
+        min-width: 1600px;
+        min-height: 40px;
+        padding: 0 20px;
+        border-radius: 4px;
+        transition: 0.2s;
+
+        &:nth-child(even) {
+            background-color: $sub-color;
+        }
+
+        .cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $cell-font-color;
+            @include P3-M130;
+
+            input {
+                height: 80%;
+                border: 2px solid $main-color;
+                border-radius: 6px;
+                background: none;
+                text-align: center;
+                @include P3-M130;
+            }
+
+            input[type='number']::-webkit-inner-spin-button,
+            input[type='number']::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            &.link {
+                padding: 4px 0;
+                border-radius: 6px;
+                transition: background-color 0.2s;
+            }
+        }
+
+        &.head {
+            font-weight: 700;
+
+            .cell {
+                @include P3-M130;
+                color: $black-color;
+            }
+        }
+
+        .total-utility-token-wrapper {
+            display: grid;
+            grid-template-columns: 16fr 3fr 3fr 3fr 3fr;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: $sub-color;
+            border-radius: 6px;
+            border: 1px solid #e8e8e8;
+
+            .total-utility-token-label {
+                text-align: center;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 36px;
+            }
+
+            .total-utility-token-value {
+                // margin-left: 50px;
+                text-align: center;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 36px;
+
+                &.success {
+                    color: $main-color;
+                }
+
+                &.fail {
+                    color: green;
+                }
+
+                &.refund {
+                    color: $red-color;
+                }
+            }
+        }
+    }
+}

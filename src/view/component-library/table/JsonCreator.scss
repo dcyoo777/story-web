@@ -1,0 +1,214 @@
+@import 'src/view/styles/variable';
+@import 'src/view/styles/fonts';
+
+.json-creator {
+    display: grid;
+    grid-template-columns: 100%;
+    row-gap: 6px;
+    width: 100%;
+    overflow: hidden;
+
+    .row {
+        display: grid;
+        grid-template-columns: 200px auto;
+        column-gap: 6px;
+    }
+
+    .head-frame {
+        margin-top: 0px;
+        cursor: pointer;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 8px 16px;
+        height: 40px;
+        border-radius: 6px;
+        background-color: $lGrey02;
+        @include P3-M130;
+
+        input {
+            width: 100%;
+            border: none;
+            @include P3-M130;
+            background-color: inherit;
+
+            &:disabled {
+                background-color: inherit;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+        .dropdown-img{
+            width: 32px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+    }
+
+    .frame {
+        position: relative;
+        input[type='file'] {
+            display: none;
+        }
+
+        label {
+            width: 100%;
+        }
+
+        input,
+        select {
+            width: 100%;
+            height: 40px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            @include P3-M130;
+            border: solid 2px $lGrey02;
+            outline: none;
+            resize: none;
+
+            &:focus {
+                border: solid 2px $blue01;
+            }
+
+            &:disabled {
+                background-color: $white;
+            }
+        }
+    }
+
+    .body {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        padding: 0 0 0 60px;
+        overflow: hidden;
+
+        .file-uri {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            padding: 0 10px;
+            left: 0;
+            white-space: pre;
+            cursor: pointer;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        > input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type='checkbox'] {
+            width: 100%;
+            height: 25px;
+        }
+
+        input[type='file'] {
+            display: none;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            border: none;
+            @include P3-M130;
+
+            &:disabled {
+                background-color: inherit;
+            }
+        }
+
+        img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+        }
+
+        .upload-file {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            border-radius: 8px;
+            background-color: $lGrey02;
+            cursor: pointer;
+            &-content {
+                display: flex;
+                align-items: center;
+                padding: 4px 8px;
+                border-radius: 8px;
+                background-color: $white;
+                // box-shadow: 5px 5px 5px $cell-font-color;
+
+                &-image {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                &-text {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    .delete-row {
+        display: flex;
+        align-items: center;
+        opacity: 0.5;
+        transition: 0.2s;
+
+        img {
+            width: 16px;
+            height: 16px;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .new-row-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        border: solid 2px $border-color;
+        border-radius: 8px;
+    }
+
+    .add-button {
+        height: 38px;
+        margin-left: 4px;
+        padding: 0 16px;
+        white-space: nowrap;
+        border-radius: 8px;
+        background-color: $blue01;
+        color: $white;
+    }
+
+    .cancel-button {
+        height: 38px;
+        margin-left: 4px;
+        padding: 0 16px;
+        white-space: nowrap;
+        border-radius: 8px;
+        background-color: $red01;
+        color: $white;
+    }
+}

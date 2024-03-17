@@ -1,0 +1,174 @@
+@import 'src/view/styles/variable';
+@import 'src/view/styles/fonts';
+
+.custom-input-table {
+    display: grid;
+    row-gap: 6px;
+    width: 100%;
+
+    // & > label {
+    //     display: grid;
+    //     grid-template-columns: minmax(150px, 250px) 1fr;
+    //     column-gap: 6px;
+    //     width: 100%;
+    //     min-height: 50px;
+    // }
+
+    .header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+        background-color: $sub-color;
+        @include P3-M130;
+        padding: 0 16px;
+
+        input {
+            width: 100%;
+            border: none;
+            @include P3-M130;
+            background-color: inherit;
+
+            &:disabled {
+                background-color: inherit;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .body {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0 10px;
+        border-radius: 8px;
+        border: 2px solid $main-color;
+
+        &.readOnly {
+            border: 1px solid $border-color;
+        }
+
+        input,
+        select {
+            width: 100%;
+            border: none;
+            transform: scale(1) !important;
+            @include P3-M130;
+
+            &:disabled {
+                color: rgb(101, 102, 104);
+                background-color: $white-color;
+                opacity: 1;
+                border: none;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        textarea {
+            margin: 10px 0;
+            width: 100%;
+            height: 300px;
+            border: none;
+            @include P3-M130;
+            resize: none;
+
+            &:disabled {
+                background-color: inherit;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        //img {
+        //    width: 100%;
+        //    max-height: 300px;
+        //    object-fit: contain;
+        //}
+
+        button {
+            padding: 4px 8px;
+            background-color: $sub-color;
+            @include P3-M130;
+        }
+
+        label {
+            width: 100%;
+        }
+
+        .upload-file {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            background-color: $border-color;
+            cursor: pointer;
+            &-content {
+                display: flex;
+                align-items: center;
+                padding: 12px 24px;
+                border-radius: 8px;
+                background-color: $white-color;
+                box-shadow: 5px 5px 5px $cell-font-color;
+
+                &-image {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                &-text {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    .image-list-item-wrapper {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 10px;
+        margin: 10px 0;
+        width: calc(100% - 150px);
+
+        .img-id-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .img-wrapper {
+                display: flex;
+                align-items: center;
+                height: 100%;
+            }
+        }
+
+        .image-list-item {
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.custom-input-table > label {
+    display: grid;
+    grid-template-columns: minmax(150px, 250px) 1fr;
+    column-gap: 6px;
+    width: 100%;
+    min-height: 50px;
+}

@@ -1,0 +1,82 @@
+@import 'src/view/styles/variable';
+@import 'src/view/styles/fonts';
+
+.pagination {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+
+    &-goto {
+        position: absolute;
+        right: 0;
+        display: flex;
+
+        &-input {
+            width: 60px;
+            height: 36px;
+            padding: 8px;
+            border: solid 1px $lGrey02;
+            border-radius: 6px;
+            outline: none;
+            @include P3-R;
+            color: $sBlack01;
+        }
+        &-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 65px;
+            height: 36px;
+            margin-left: 8px;
+            background-color: $blue01;
+            color: $white-color;
+            border-radius: 6px;
+
+            &:disabled {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    &-numbers {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        width: 100%;
+        &-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: $grey03;
+            color: $sBlack01;
+            @include P3-R;
+            border-radius: 50%;
+            &-link{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 16px;
+                background-color: $grey03;
+                color: $sBlack01;
+                @include P3-R;
+                border-radius: 20px;
+                &.disabled {
+                    opacity: 0.5;
+                    cursor: default;
+                }
+            }
+
+            &.active {
+                background-color: $blue01;
+                color: $white;
+            }
+        }
+    }
+}

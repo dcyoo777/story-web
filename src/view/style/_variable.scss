@@ -1,0 +1,60 @@
+// LAYOUT
+
+$window-min-width: 1180px;
+$header-height: 60px;
+// $snb-width: 340px;
+$snb-width: 244px;
+$closed-snb-width: 60px;
+
+// COLORS
+
+$main-color: #3579ff;
+$button-create-background-color: #4a80d1;
+$button-create-hover-color: #2c90e8;
+$hover-color: #829bff;
+
+$white-color: white;
+
+$red-color: #e82c2c;
+$red-sub-color: #d14a4a;
+
+$black-color: black;
+$button-background-color: #090a0b;
+$default-font-color: #353c49;
+$nav-font-color: #6f767e;
+
+$cell-font-color: #5e6d8a;
+$sub-color: #f7f8fc;
+$snb-icon-color: #dedfe3;
+
+$disable-color: #e8e8e8;
+$border-color: #e7e9ef;
+
+// SVG-FILTER
+
+$snb-hover-icon-filter: invert(98%) sepia(45%) saturate(7%) hue-rotate(143deg)
+  brightness(103%) contrast(100%);
+
+// 2023.7.27 추가 - Figma 기준으로 새롭게 정의된 color 목록입니다.
+// 기존에 사용되던 색상은 별도의 컬러 가이드가 없이 작성된것으로 알고있어서, UI 수정 시 아래 컬러들로 마이그레이션 해주시면 될것 같습니다.
+
+$black01: #161717;
+$black02: #1b2124;
+$black03: #1b1c1e;
+$blue01: #3860e2;
+$blue02: #48a0ff;
+$blue03: #c7e2ff;
+$red01: #ff2e2e;
+$red02: #c57878;
+$red03: #e2bbbb;
+$grey01: #7f879e;
+$grey02: #aaafbe;
+$grey03: #e4e6eb;
+$lGrey01: #d8d8d8;
+$lGrey02: #efefef;
+$lGrey03: #f9f9f9;
+$sBlack01: #252a3f;
+$sBlack02: #2e334b;
+$sBlack03: #3d425a;
+$white: #ffffff;
+$screen-white: #ffffff;

@@ -1,0 +1,13 @@
+#SearchBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  // width: 100%;
+  border-radius: 10px;
+
+  .filter-wrapper {
+    display: flex;
+    align-items: center;
+  }
+}

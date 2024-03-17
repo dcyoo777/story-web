@@ -1,0 +1,30 @@
+@import 'src/view/styles/variable';
+@import 'src/view/styles/fonts';
+
+.file-uploader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 160px;
+    border-radius: 8px;
+    background-color: $border-color;
+    cursor: pointer;
+    &-content {
+        display: flex;
+        align-items: center;
+        padding: 12px 24px;
+        border-radius: 8px;
+        background-color: $white-color;
+        box-shadow: 5px 5px 5px $cell-font-color;
+
+        &-image {
+            width: 20px;
+            height: 20px;
+        }
+
+        &-text {
+            margin-left: 10px;
+        }
+    }
+}
