@@ -1,6 +1,6 @@
 import './DebounceInput.scss';
 import Input from './Input';
-import useDebounce from '../../../hooks/useDebounce';
+import useDebounce from '../../../hook/useDebounce';
 
 function DebounceInput(props) {
     const {

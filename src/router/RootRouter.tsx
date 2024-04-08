@@ -7,7 +7,8 @@ import StoryOutlet from "../view/page/StoryOutlet";
 import List from "../view/template/List";
 import Detail from "../view/template/Detail";
 import Create from "../view/template/Create";
-import Update from "../view/template/Update";
+import Edit from "../view/template/Edit";
+import Item from "../view/template/Item";
 
 function RootRouter() {
     return (
@@ -16,9 +17,12 @@ function RootRouter() {
             <Route path="*" element={<Layout />} >
                 <Route path={`story/`} element={<StoryOutlet />}>
                     <Route path="" index element={<List />} />
-                    <Route path=":storyId" element={<Detail />} />
+                    <Route path=":storyId/" element={<Item />}>
+                        <Route index element={<Detail />} />
+                        <Route path="edit" element={<Edit />} />
+                    </Route>
                     <Route path="create" element={<Create />} />
-                    <Route path="update" element={<Update />} />
+
                 </Route>
                 {/*<CommonRouter name="story" outlet={<StoryOutlet />}/>*/}
             </Route>

@@ -1,0 +1,130 @@
+@import 'src/view/style/variable';
+@import 'src/view/style/font';
+
+
+#SNB{
+  --logo-height: 68px;
+  --tab-height: 42px;
+  --icon-size: 24px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: $black02;
+  grid-template-rows: var(--logo-height) 1fr;
+  .snb-logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--logo-height);
+    padding: 0 18px;
+    background-color: $black02;
+    img{
+      height: 18px;
+      object-fit: contain;
+    }
+  }
+  .snb-container{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    gap: 20px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.category{
+  display: flex;
+  flex-direction: column;
+  .category-name{
+    padding: 0 13px;
+    @include P3-M130;
+    color: $grey02;
+    margin-bottom: 8px;
+  }
+}
+
+.menu{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+
+  img{
+    width: var(--icon-size);
+    height: var(--icon-size);
+    object-fit: contain;
+    transition: 0.3s ease-in-out;
+  }
+  .menu-container{
+    width: 100%;
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 13px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+
+    &.selected{
+      background-color: $black01;
+    }
+    &:hover{
+      background-color: $black01;
+    }
+
+    .menu-detail{
+      display: flex;
+      align-items: center;
+      .menu-icon{
+        margin-right: 10px;
+      }
+      .menu-name{
+        color: $grey02;
+        @include P3-R;
+        &.selected{
+          color: $blue02;
+        }
+      }
+    }
+  }
+}
+
+.sub-menu{
+  width: 100%;
+  height: var(--tab-height);
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  &:hover{
+    background-color: $black01;
+  }
+  &.selected{
+    background-color: $black01;
+  }
+  .space{
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin-right: 10px;
+  }
+  .sub-menu-name{
+    @include P3-R;
+    color: $grey02;
+    &.selected{
+      color: $blue02;
+    }
+  }
+}
+
+.slider-container{
+  width: 100%;
+  transition: height 0.3s ease, opacity 0.55s ease-in-out;
+  overflow: hidden;
+  opacity: 0;
+}

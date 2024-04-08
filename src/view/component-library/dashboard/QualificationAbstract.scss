@@ -1,0 +1,78 @@
+@import 'src/view/style/variable';
+@import 'src/view/style/font';
+
+$label-height: 40px;
+$link-top-margin: 10px;
+$link-height: 40px;
+
+.qualification-abstract {
+    &-label {
+        display: flex;
+        align-items: flex-start;
+        height: $label-height;
+        margin: 0 auto;
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .qualification-abs-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        row-gap: 10px;
+        width: 100%;
+        height: calc(100% - $label-height - $link-top-margin - $link-height);
+        overflow: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .no-qualification-abs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .qualification-abs-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 10px;
+        padding: 12px;
+        border-radius: 8px;
+        border: solid 1px $border-color;
+
+        &-label {
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        &-value {
+            width: 100%;
+            text-align: right;
+            font-size: 0.9em;
+        }
+
+        &:hover {
+            background-color: $sub-color;
+        }
+    }
+
+    .link-to-qualification {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: $link-top-margin;
+        height: $link-height;
+        padding: 0 20px;
+        border-radius: 4px;
+        background-color: $main-color;
+        color: $white-color;
+        font-size: 14px;
+        font-weight: 700;
+        transition: 0.2s;
+    }
+}

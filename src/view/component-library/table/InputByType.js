@@ -1,15 +1,16 @@
 import { useMemo, useRef } from 'react';
 import './InputByType.scss';
 import Select from '../input/Select';
-import { UTCTimestamp } from '../../../utils/TimeUtils';
+// import { UTCTimestamp } from '../../../util/timeUtils';
+import {UTCTimestamp} from "../../../util/timeUtils";
 import { useTranslation } from 'react-i18next';
 import dayjs from 'dayjs';
-import MobileView from 'view/components/MobileView';
-import { addComma, getKeyByValue } from 'utils/commonUtils';
+import MobileView from '../MobileView';
+import { addComma, getKeyByValue } from '../../../util/commonUtils';
 import { FileUploader } from 'react-drag-drop-files';
-import uploadFileIcon from 'view/assets/image/upload-file.png';
-import TimeInput from 'view/component-library/input/TimeInput';
-import { addColon } from 'utils/parseUtil';
+// import uploadFileIcon from 'view/assets/image/upload-file.png';
+import TimeInput from '../input/TimeInput';
+// import { addColon } from '../../../util/parseUtil';
 
 const VALID_PROPS_KEY = [
     'accept',
@@ -22,7 +23,7 @@ const VALID_PROPS_KEY = [
 
 const InputByType = props => {
     const { t } = useTranslation('translation');
-    const { header, data, onChageData, setData, isReadOnly } = props || {};
+    const { header, data, onChangeData, setData, isReadOnly } = props || {};
     const uploadFile = files => {
         const file = files;
         const reader = new FileReader();
@@ -43,7 +44,7 @@ const InputByType = props => {
                 alert('2GB OVER');
                 return;
             } else {
-                onChageData({
+                onChangeData({
                     target: {
                         name: `${header.key}`,
                         type: 'file',
@@ -92,7 +93,7 @@ const InputByType = props => {
                     name={`${header.key}`}
                     value={data[header.key] ?? ''}
                     {...params}
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     disabled={isReadOnly(header)}
                 />
             );
@@ -103,7 +104,7 @@ const InputByType = props => {
                     name={`${header.key}`}
                     type={'checkbox'}
                     checked={Boolean(data[header.key]) ? true : false}
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     disabled={isReadOnly(header)}
                 />
             );
@@ -114,7 +115,7 @@ const InputByType = props => {
                     name={`${header.key}`}
                     type={header.type}
                     value={UTCTimestamp(data[header.key])}
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     disabled={isReadOnly(header)}
                 />
             );
@@ -124,7 +125,7 @@ const InputByType = props => {
                     id={`${header.key}`}
                     name={`${header.key}`}
                     value={data[header.key]}
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     disabled={isReadOnly(header)}
                 />
             );
@@ -141,7 +142,7 @@ const InputByType = props => {
                         <div className="upload-file-content">
                             <img
                                 className="upload-file-content-image"
-                                src={uploadFileIcon}
+                                src={""}
                                 alt=""
                             />
                             <div className="upload-file-content-text">
@@ -232,7 +233,7 @@ const InputByType = props => {
                             ? ''
                             : addComma(data[header.key])
                     }
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     min={0}
                     {...params}
                     disabled={isReadOnly(header)}
@@ -262,7 +263,7 @@ const InputByType = props => {
                     value={
                         getKeyByValue(header.statusObj, data[header.key]) ?? ''
                     }
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     {...params}
                     disabled={isReadOnly(header)}
                 />
@@ -274,7 +275,7 @@ const InputByType = props => {
                     id={`${header.key}`}
                     name={`${header.key}`}
                     value={data[header.key] ?? ''}
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     {...params}
                     disabled={isReadOnly(header)}
                 />
@@ -286,7 +287,7 @@ const InputByType = props => {
                     name={`${header.key}`}
                     type={header.type}
                     value={data[header.key] ?? ''}
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     {...params}
                     disabled={isReadOnly(header)}
                 />

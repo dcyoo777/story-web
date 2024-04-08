@@ -1,0 +1,25 @@
+@import 'src/view/style/variable';
+@import 'src/view/style/font';
+
+.subscription-rate{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  span {
+    text-align: right;
+  }
+  progress {
+    width: 100%;
+    height: 20px;
+    //background-color: $blue03;
+  }
+
+  .subscription-rate-text{
+    display: flex;
+    justify-content: flex-end;
+    @include P3-M130;
+    color: $sBlack01;
+    margin-bottom: 4px;
+  }
+}

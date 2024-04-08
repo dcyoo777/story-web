@@ -1,0 +1,179 @@
+@import 'mixins';
+
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: '#{$font-name}';
+        src: url('../asset/font/#{$file-name}.otf') format('truetype');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+// 2023.7.27 폰트 추가
+// Figma 기준으로 사용되는 폰트를 추가했습니다. 기존 폰트에서 마이그레이션이 필요합니다.
+@include font-face('Pretendard', 'Pretendard-Black', 900, normal);
+@include font-face('Pretendard', 'Pretendard-ExtraBold', 800, normal);
+@include font-face('Pretendard', 'Pretendard-Bold', 700, normal);
+@include font-face('Pretendard', 'Pretendard-SemiBold', 600, normal);
+@include font-face('Pretendard', 'Pretendard-Medium', 500, normal);
+@include font-face('Pretendard', 'Pretendard-Regular', 400, normal);
+@include font-face('Pretendard', 'Pretendard-Light', 300, normal);
+@include font-face('Pretendard', 'Pretendard-ExtraLight', 200, normal);
+@include font-face('Pretendard', 'Pretendard-Thin', 100, normal);
+
+@mixin font-size($font-size) {
+    font-size: $font-size;
+}
+
+@mixin line-height($line-height) {
+    line-height: $line-height;
+}
+
+// 2023.7.27 폰트 추가
+// Figma 기준으로 사용되는 폰트를 추가했습니다. 기존 폰트에서 마이그레이션이 필요합니다.
+
+//Heading
+@mixin H1 {
+    font-family: Pretendard, serif;
+    font-weight: 700;
+    @include font-size(62px);
+    @include line-height(130%);
+}
+
+@mixin H2 {
+    font-family: Pretendard, serif;
+    font-weight: 700;
+    @include font-size(44px);
+    @include line-height(130%);
+}
+
+@mixin H3 {
+    font-family: Pretendard, serif;
+    font-weight: 700;
+    @include font-size(32px);
+    @include line-height(130%);
+}
+
+@mixin H4 {
+    font-family: Pretendard, serif;
+    font-weight: 700;
+    @include font-size(28px);
+    @include line-height(130%);
+}
+
+@mixin H5 {
+    font-family: Pretendard, serif;
+    font-weight: 700;
+    @include font-size(24px);
+    @include line-height(130%);
+}
+
+@mixin H6 {
+    font-family: Pretendard, serif;
+    font-weight: 700;
+    @include font-size(20px);
+    @include line-height(130%);
+}
+
+// SH는 Sub Heading의 약자이며, Figma의 Heading2 폰트를 의미합니다.
+@mixin SH1 {
+    font-family: Pretendard, serif;
+    font-weight: 700;
+    @include font-size(18px);
+    @include line-height(130%);
+}
+
+@mixin SH2 {
+    font-family: Pretendard, serif;
+    font-weight: 700;
+    @include font-size(16px);
+    @include line-height(130%);
+}
+
+@mixin SH3 {
+    font-family: Pretendard, serif;
+    font-weight: 700;
+    @include font-size(14px);
+    @include line-height(130%);
+}
+
+@mixin SH4 {
+    font-family: Pretendard, serif;
+    font-weight: 700;
+    @include font-size(12px);
+    @include line-height(130%);
+}
+
+// P{N} - {M} 은 Figma의 Paragraph 폰트와, 해당 폰트의 fontWeight + (optional)LineHeight를 의미합니다.
+// P1-R: Paragraph의 P1 폰트 중 Reguler
+// P1-M130: Paragraph의 P1 폰트 중 Medium, Line Height 130
+@mixin P1-R {
+    font-family: Pretendard, serif;
+    font-weight: 400;
+    @include font-size(18px);
+    @include line-height(160%);
+}
+
+@mixin P1-M130 {
+    font-family: Pretendard, serif;
+    font-weight: 500;
+    @include font-size(18px);
+    @include line-height(130%);
+}
+
+@mixin P1-M160 {
+    font-family: Pretendard, serif;
+    font-weight: 500;
+    @include font-size(18px);
+    @include line-height(160%);
+}
+
+@mixin P2-R {
+    font-family: Pretendard, serif;
+    font-weight: 400;
+    @include font-size(16px);
+    @include line-height(160%);
+}
+
+@mixin P2-M {
+    font-family: Pretendard, serif;
+    font-weight: 500;
+    @include font-size(16px);
+    @include line-height(130%);
+}
+
+@mixin P3-R {
+    font-family: Pretendard, serif;
+    font-weight: 400;
+    @include font-size(14px);
+    @include line-height(160%);
+}
+
+@mixin P3-M130 {
+    font-family: Pretendard, serif;
+    font-weight: 500;
+    @include font-size(14px);
+    @include line-height(130%);
+}
+
+@mixin P3-M160 {
+    font-family: Pretendard, serif;
+    font-weight: 500;
+    @include font-size(14px);
+    @include line-height(160%);
+}
+
+@mixin P4-R {
+    font-family: Pretendard, serif;
+    font-weight: 400;
+    @include font-size(12px);
+    @include line-height(160%);
+}
+
+@mixin P4-M {
+    font-family: Pretendard, serif;
+    font-weight: 500;
+    @include font-size(12px);
+    @include line-height(130%);
+}
+

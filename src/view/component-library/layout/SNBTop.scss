@@ -1,0 +1,16 @@
+@import 'src/view/style/variable';
+
+#SNB-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px;
+    padding: 0 18px;
+    background-color: $black02;
+    #SNB-logo {
+        img {
+            height: 18px;
+            object-fit: contain;
+        }
+    }
+}

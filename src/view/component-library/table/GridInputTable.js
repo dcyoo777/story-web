@@ -1,7 +1,7 @@
-import DataView from 'view/components/data/DataView';
+import DataTable from './DataTable';
 
 function GridInputTable(props) {
-    return <DataView {...props} />;
+    return <DataTable {...props} />;
 }
 
 export default GridInputTable;

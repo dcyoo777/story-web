@@ -1,0 +1,12 @@
+@import 'src/view/style/variable';
+@import 'src/view/style/font';
+.qualification-request{
+  display: flex;
+  align-items: center;
+  padding: 4px 16px;
+  border-radius: 16px;
+  background-color: $blue03;
+  color: $blue01;
+  @include P3-M130;
+  cursor: pointer;
+}

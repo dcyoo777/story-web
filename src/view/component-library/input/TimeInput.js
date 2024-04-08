@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import './TimeInput.scss';
-import { addColon } from 'utils/parseUtil';
+import { addColon } from '../../../util/parseUtil';
 
 function TimeInput(props) {
     const { value: realValue, onChange, ...rest } = props;

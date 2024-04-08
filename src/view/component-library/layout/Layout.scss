@@ -1,0 +1,41 @@
+@import 'src/view/style/variable';
+
+#layout {
+    display: grid;
+    //grid-template-columns: $snb-width 1fr;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+    // SNB 마이그레이션이 모두 완료되면 main 전까지의 코드를 삭제합니다.
+    &.close {
+        grid-template-columns: $closed-snb-width 1fr;
+        #SNB-logo {
+            width: 0;
+            overflow: hidden;
+        }
+        .snb-main-nav-text {
+            display: none;
+        }
+    }
+    .snb-wrapper{
+        display: grid;
+        grid-template-rows: 68px 1fr;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    main {
+        position: relative;
+        //margin-top: $header-height;
+        padding: 20px;
+        width: 100%;
+        overflow: auto;
+        background-color: $screen-white;
+        .layout-container{
+            width: 1100px;
+            margin: 0 auto;
+        }
+    }
+
+
+}

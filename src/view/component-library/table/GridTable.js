@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
 import './GridTable.scss';
-import { addComma } from 'utils/commonUtils';
 import dayjs from 'dayjs';
 
 function GridTable(props) {
@@ -27,7 +26,7 @@ function GridTable(props) {
             case 'chain-data':
                 return item?.slice(0, 10) + ' ... ' + item?.slice(-6);
             case 'number':
-                return addComma(item);
+                return item;
             case 'image':
                 return <img className="grid-table-image" src={item} alt="" />;
             case 'select':

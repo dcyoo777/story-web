@@ -11,15 +11,31 @@
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "axios": "^1.6.7",
+    "bignumber": "^1.1.0",
+    "bignumber.js": "^9.1.2",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.4.5",
+    "env-cmd": "^10.1.0",
+    "i18next": "^23.10.1",
+    "lodash": "^4.17.21",
+    "qs": "^6.12.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-drag-drop-files": "^2.3.10",
+    "react-i18next": "^14.1.0",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
+    "react-tooltip": "^5.26.3",
     "sass": "^1.71.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "start:feature": "env-cmd -f .env.feature react-scripts start",
+    "start:prod": "env-cmd -f .env.production react-scripts start",
+    "build:feature": "env-cmd -f .env.feature react-scripts build",
+    "build:prod": "env-cmd -f .env.production react-scripts build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -42,5 +58,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.0"
   }
 }

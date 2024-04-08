@@ -1,20 +1,22 @@
 import {CommonRequests} from './commonRequests'
 
-export class Story {
+export interface StoryInterface {
+    storyId?: number
+    title: string
+    content: string
+    createdAt?: string
+    updatedAt?: string
+}
 
-    storyId: number
+export class Story implements StoryInterface{
+
+    storyId?: number
     title: string
     content: string
     createdAt?: string
     updatedAt?: string
 
-    constructor({ storyId, title, content, createdAt, updatedAt }: {
-        storyId: number,
-        title: string,
-        content: string,
-        createdAt?: string,
-        updatedAt?: string,
-    }) {
+    constructor({ storyId, title, content, createdAt, updatedAt }: StoryInterface) {
         this.storyId = storyId
         this.title = title
         this.content = content
@@ -22,8 +24,8 @@ export class Story {
         this.updatedAt = updatedAt
     }
 
-    static makeStory(item: any) {
-        const isValid = item?.storyId && item?.title && item?.content;
+    static makeStory(item: StoryInterface) {
+        const isValid = item?.title && item?.content;
 
         if (isValid) {
             return new Story({
@@ -44,11 +46,13 @@ export class StoryReq extends CommonRequests {
     }
 
     async getAll(): Promise<Story[]> {
-        return (await super.getAll()).map(item => new Story(item))
+        const response = await super.getAll();
+        return response?.data?.result?.map((item: any) => new Story(item));
     }
 
     async getOneByPk(pk: number): Promise<Story> {
-        return new Story(await super.getOneByPk(pk))
+        const response = await super.getOneByPk(pk);
+        return new Story(response?.data?.result)
     }
 
     async create(story: Story): Promise<Story> {
@@ -61,4 +65,8 @@ export class StoryReq extends CommonRequests {
 
 }
 
-export const storyReq = new StoryReq({baseUrl: 'http://localhost:8080/story'})
+const domain = process.env.REACT_APP_SERVER_DOMAIN ?? '';
+
+const baseUrl = domain + '/story'
+
+export const storyReq = new StoryReq({baseUrl})

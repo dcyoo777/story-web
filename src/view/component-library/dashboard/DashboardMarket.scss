@@ -1,0 +1,29 @@
+@import 'src/view/style/font';
+@import 'src/view/style/variable';
+
+.market-status{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 16px;
+  background-color: $grey03;
+  color: $sBlack03;
+  @include P4-R;
+  &.active{
+    background-color: $blue03;
+    color: $blue01;
+  }
+
+  .status-dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $sBlack03;
+    &.active{
+      background-color: $blue01;
+
+    }
+  }
+
+}

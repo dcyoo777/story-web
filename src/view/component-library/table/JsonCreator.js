@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './JsonCreator.scss';
 import Select from '../input/Select';
 import { MdAddCircleOutline } from 'react-icons/md';
-import { iconSize } from 'view/styles/variable';
+import { iconSize } from 'view/style/variable';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import cancelBlack from 'view/assets/image/cancel-black.png';

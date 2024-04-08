@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import './ListTemplate.scss';
 import Button from '../button/Button';
 import { useTranslation } from 'react-i18next';
-import C1 from 'view/components/container/C1';
-import GridTable from 'view/component-library/table/GridTable';
-import Pagination from 'view/component-library/pagination/Pagination';
+// import C1 from 'view/components/container/C1';
+import GridTable from '../table/GridTable';
+import Pagination from '../pagination/Pagination';
 import { useLocation, useNavigate } from 'react-router-dom';
-import ButtonWrapper from '../../components/ButtonWrapper';
-import FilterIcon from '../../assets/image/icon-filter.png'
+// import ButtonWrapper from '../../component/ButtonWrapper';
+// import FilterIcon from '../../assets/image/icon-filter.png'
 
 function ListTemplate(
     {
@@ -31,12 +31,12 @@ function ListTemplate(
     }
 
     return (
-        <C1 className={'list-template'}>
+        <div className={'list-template'}>
             <div className='list-template-header'>
                 <span className='list-template-title'>{t(`${title}`)}</span>
                 {hasFilter &&
                     <div className='list-template-filter' onClick={() => onClickFilter()}>
-                        <img className='list-template-filter-icon' src={FilterIcon} alt='' />
+                        {/*<img className='list-template-filter-icon' src={FilterIcon} alt='' />*/}
                         <span>필터</span>
                     </div>
                 }
@@ -57,7 +57,7 @@ function ListTemplate(
             {useCreate && (
                 <>
                     <div className='dash-line' />
-                    <ButtonWrapper>
+                    {/*<ButtonWrapper>*/}
                         <Button
                             className={'primary'}
                             onClick={() =>
@@ -66,11 +66,11 @@ function ListTemplate(
                             }>
                             {t('create')}
                         </Button>
-                    </ButtonWrapper>
+                    {/*</ButtonWrapper>*/}
 
                 </>
             )}
-        </C1>
+        </div>
     );
 }
 

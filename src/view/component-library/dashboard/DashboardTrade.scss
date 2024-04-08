@@ -1,0 +1,48 @@
+@import 'src/view/style/variable';
+@import 'src/view/style/font';
+
+.custom-tooltip{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  border-radius: 6px;
+  background-color: $lGrey03;
+  color: $sBlack01;
+}
+
+.bar{
+  &:hover{
+    background-color: $blue01;
+  }
+}
+
+.no-trade-history{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  @include SH1;
+  color: $sBlack01;
+}
+
+.pair-select{
+  -webkit-appearance: none;
+  /* 크롬 화살표 없애기 */
+  -moz-appearance: none;
+  /* 파이어폭스 화살표 없애기 */
+  appearance: none;
+  /* 화살표 없애기 */
+  width: 144px;
+  padding: 7px 16px;
+  border-radius: 16px;
+  background: $lGrey03 url('./select-arrow.svg') no-repeat right 10px center;
+  @include P3-M130;
+  color: $sBlack01;
+  border: none;
+  outline: none;
+  &:focus {
+    border: none;
+  }
+}

@@ -5,10 +5,10 @@ import { UTCTimestamp } from '../../../utils/TimeUtils';
 import _ from 'lodash';
 import Button from '../button/Button';
 import { MdAddCircleOutline } from 'react-icons/md';
-import { iconSize } from 'view/styles/variable';
+import { iconSize } from 'view/style/variable';
 
 const InputByType = props => {
-    const { header, data, onChageData, setData } = props || {};
+    const { header, data, onChangeData, setData } = props || {};
 
     const inputRef = useRef(null);
 
@@ -31,7 +31,7 @@ const InputByType = props => {
                     alert('2GB OVER');
                     return;
                 } else {
-                    onChageData({
+                    onChangeData({
                         target: {
                             name: `${header.key}`,
                             type: 'file',
@@ -53,7 +53,7 @@ const InputByType = props => {
                     name={`${header.key}`}
                     value={data[header.key]}
                     {...header}
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     disabled={!setData}
                 />
             );
@@ -64,7 +64,7 @@ const InputByType = props => {
                     name={`${header.key}`}
                     type={'checkbox'}
                     checked={data[header.key] ? true : false}
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     disabled={!setData}
                 />
             );
@@ -75,7 +75,7 @@ const InputByType = props => {
                     name={`${header.key}`}
                     type={header.type}
                     value={UTCTimestamp(data[header.key])}
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     disabled={!setData}
                 />
             );
@@ -85,7 +85,7 @@ const InputByType = props => {
                     id={`${header.key}`}
                     name={`${header.key}`}
                     value={data[header.key]}
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     disabled={!setData}
                 />
             );
@@ -115,7 +115,7 @@ const InputByType = props => {
                     type={header.type}
                     {...header}
                     value={data[header.key] ?? ''}
-                    onChange={onChageData}
+                    onChange={onChangeData}
                     disabled={!setData}
                 />
             );
@@ -134,7 +134,7 @@ function InputTable(props) {
     const [newRow, setNewRow] = useState(initialNewRow);
     const [isEdit, setIsEdit] = useState(false);
 
-    const onChageData = e => {
+    const onChangeData = e => {
         const { name, value, type, checked } = e.target || {};
         const valueByType = type => {
             switch (type) {
@@ -181,7 +181,7 @@ function InputTable(props) {
                                 <InputByType
                                     header={header}
                                     data={data}
-                                    onChageData={onChageData}
+                                    onChangeData={onChangeData}
                                     setData={setData}
                                 />
                             </div>

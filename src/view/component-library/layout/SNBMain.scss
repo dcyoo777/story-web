@@ -1,0 +1,257 @@
+@import 'src/view/style/variable';
+
+#SNB-main {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 0;
+    overflow: hidden;
+    background-color: $black02;
+    transition: all 0.25s;
+    // border-right: solid 1px $cell-font-color;
+
+    &.common {
+        grid-template-columns: 100% 0px;
+        transition: all 0.25s;
+    }
+
+    &.nav2-active {
+        grid-template-columns: 44px 100%;
+        transition: all 0.25s;
+    }
+
+    &.nav2-hide {
+        grid-template-columns: 100% 0px;
+        transition: all 0.25s;
+    }
+
+    .snb-nav {
+        &:hover,
+        &.active {
+            background-color: $main-color;
+            color: $white-color;
+
+            .snb-nav-menu-title {
+                color: $white-color;
+            }
+
+            .snb-icon {
+                filter: $snb-hover-icon-filter;
+            }
+
+            .snb-nav-menu-bullet {
+                border: none;
+                background-color: $white-color;
+            }
+        }
+
+        &.is-top {
+            padding: 6px 0;
+        }
+    }
+
+    .sub {
+        padding-left: 16px;
+    }
+
+    .snb-nav-menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 46px;
+        padding: 0 24px;
+        // transition: background-color 0.15s ease-in-out;
+        cursor: pointer;
+
+        &-title {
+            margin: 0 0 0 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: $black-color;
+            white-space: nowrap;
+        }
+
+        .snb-icon {
+            display: inline-block;
+            width: 23px;
+            height: 23px;
+        }
+
+        &-bullet {
+            min-width: 6px;
+            width: 6px;
+            height: 6px;
+            margin-left: 19px;
+            border: solid 1px $black-color;
+            border-radius: 3px;
+        }
+
+        .snb-arrow {
+            display: inline-block;
+            min-width: 6px;
+            width: 16px;
+            height: 16px;
+        }
+
+        &:hover,
+        &.active {
+            background-color: $main-color;
+
+            .snb-nav-menu-title {
+                color: $white-color;
+                white-space: nowrap;
+            }
+
+            .snb-nav-menu-bullet {
+                border: none;
+                background-color: $white-color;
+            }
+        }
+    }
+
+    #SNB-nav2-wrapper {
+        overflow-x: hidden;
+        background-color: $black02;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .SNB-nav2-title {
+        font-size: 16px;
+        line-height: 24px;
+        padding: 24px 20px;
+        color: $grey02;
+        font-weight: bold;
+        border-bottom: 1px solid $button-background-color;
+        cursor: default;
+        white-space: nowrap;
+    }
+
+    .snb-nav2-menu-wrapper {
+        cursor: pointer;
+
+        .snb-nav2-menu {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            padding: 12px 10px;
+            width: 100%;
+            transition: background-color 0.15s ease-in-out;
+            white-space: nowrap;
+            // border-radius: 4px;
+
+            &-title {
+                color: $grey02;
+                margin: 0 0 0 12px;
+                white-space: nowrap;
+            }
+        }
+
+        &:hover,
+        &.active .snb-nav2-menu {
+            background-color: $blue01;
+        }
+
+        &:hover,
+        &.active .snb-nav2-menu .snb-nav2-menu-icon {
+            color: $sub-color !important;
+        }
+
+        &:hover,
+        &.active .snb-nav2-menu .snb-nav2-menu-title {
+            color: $sub-color !important;
+        }
+
+        &:hover,
+        &.active .snb-nav2-menu .snb-nav-menu-bullet {
+            border: none;
+            background-color: rgba($color: $main-color, $alpha: 0.2);
+        }
+    }
+}
+
+.main-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 8px;
+    //padding: 0 12px;
+    min-width: 244px;
+    height: 100%;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    &-item {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        margin: 8px 0;
+        padding: 0 12px;
+        cursor: pointer;
+
+        &.selected {
+            box-shadow: 0px 1px 1px 0px #ffffff inset;
+            box-shadow: 0px -2px 1px 0px #0000000d inset;
+            background-color: $black01;
+        }
+        &-img-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            height: 24px !important;
+            img {
+                width: 20px;
+                height: 20px;
+                filter: invert(52%) sepia(7%) saturate(558%) hue-rotate(172deg)
+                    brightness(85%) contrast(84%);
+            }
+        }
+        &-label {
+            margin: 0 6px;
+            padding: 6px;
+            width: 100%;
+            border-radius: 12px;
+            color: $grey02;
+        }
+
+        &:hover {
+            background-color: $black01;
+        }
+    }
+}
+.sub-nav-item-wrapper {
+    margin: -40px 0 20px 10px;
+    .sub-nav-item {
+        display: flex;
+        padding-left: 12px;
+        height: 38px;
+        .sub-snb-icon {
+            width: 20px;
+            object-fit: contain;
+            margin-bottom: -10px;
+        }
+        .sub-nav-item-label {
+            display: flex;
+            align-items: center;
+            margin: 28px 0 0 10px;
+            padding: 12px;
+            width: 100%;
+            min-height: 30px;
+            color: $grey02;
+            font-size: 15px;
+            cursor: pointer;
+            &:hover,
+            &.selected {
+                //box-shadow: 0px 1px 1px 0px #ffffff inset;
+                //box-shadow: 0px -2px 1px 0px #0000000d inset;
+                background-color: $black01;
+                border-radius: 8px;
+                color: $blue02
+            }
+        }
+    }
+}

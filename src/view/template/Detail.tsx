@@ -1,16 +1,42 @@
-import React from 'react';
-import {useOutletContext} from "react-router-dom";
-
-// Detail.prototype = {
-//     name: string
-// }
+import React, {useCallback} from 'react';
+import {useNavigate, useOutletContext} from "react-router-dom";
+import DataView from "../component-library/data/DataView";
+import ButtonWrapper from "../component-library/ButtonWrapper";
+import Button from "../component-library/button/Button";
+import {TableData} from "../page/StoryOutlet";
+import {EditContent} from "../../hook/useEditContent";
 
 function Detail() {
 
-    const cont = useOutletContext();
+    const navigate = useNavigate();
+    const {props, deleteItem, content}: TableData & EditContent = useOutletContext();
+
+    const onToList = useCallback(() => navigate(`/${props.path}`), [navigate, props])
+    const onUpdate = useCallback(() => navigate(`edit`), [navigate])
+    const onDelete = useCallback(async () => {
+        if (!content) {
+            return
+        }
+        const result = await deleteItem(content[props.priKey])
+        if (result){
+            alert("Delete Success")
+            navigate(`/${props.path}`)
+        }
+    }, [navigate, props, content, deleteItem])
 
     return (
-        <div></div>
+        <>
+            <DataView
+                data={content}
+                headers={props.columns}
+                title={'Detail'}
+            />
+            <ButtonWrapper>
+                <Button onClick={onToList}>To list</Button>
+                <Button onClick={onUpdate}>Update</Button>
+                <Button onClick={onDelete}>Delete</Button>
+            </ButtonWrapper>
+        </>
     );
 }
 

@@ -1,0 +1,18 @@
+@import 'src/view/style/variable';
+@import 'src/view/style/font';
+
+#MarketInvestmentSummary {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    width: 100%;
+    margin: 40px 0;
+
+    .title {
+        @include SH1;
+    }
+
+    .add-item {
+        width: 100%;
+    }
+}
