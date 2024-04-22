@@ -3,7 +3,7 @@ import {useNavigate, useOutletContext} from "react-router-dom";
 import DataView from "../component-library/data/DataView";
 import ButtonWrapper from "../component-library/ButtonWrapper";
 import Button from "../component-library/button/Button";
-import {TableData} from "../page/StoryOutlet";
+import {TableData} from "../../service/story/StoryContext";
 import {EditContent} from "../../hook/useEditContent";
 
 function Detail() {

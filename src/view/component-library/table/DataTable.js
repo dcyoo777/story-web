@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './DataTable.scss';
 import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
-import InputByType from './InputByType';
+import InputByType from '../input/InputByType';
 import { Tooltip } from 'react-tooltip'
 
 function DataTable(props) {

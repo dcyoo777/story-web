@@ -1,7 +1,7 @@
 import React, {Suspense, useEffect, useMemo} from 'react';
 import {Outlet, useOutletContext, useParams} from "react-router-dom";
 import useEditContent from "../../hook/useEditContent";
-import {TableData} from "../page/StoryOutlet";
+import {TableData} from "../../service/story/StoryContext";
 
 // Detail.prototype = {
 //     name: string

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './DataView.scss';
 import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
-import InputByType from '../../component-library/table/InputByType';
+import InputByType from '../input/InputByType';
 import { Tooltip } from 'react-tooltip'
 // import questionMark from "../../assets/image/question-mark.png";
 

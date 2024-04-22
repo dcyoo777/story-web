@@ -2,11 +2,7 @@ import React, {useCallback, useMemo} from 'react';
 import CreateTemplate from "../component-library/template/CreateTemplate";
 import {useNavigate, useOutletContext} from "react-router-dom";
 import useEditContent from "../../hook/useEditContent";
-
-const initialContent = {
-    title: '',
-    content: '',
-}
+import {TableDataColumn} from "../../service/story/StoryContext";
 
 function Create() {
 
@@ -15,8 +11,10 @@ function Create() {
     // @ts-ignore
     const {props, createItem} = useOutletContext();
 
+    console.log(props)
+
     const { content, setContent } = useEditContent(
-        initialContent,
+        props.initialContent,
         true,
     );
 
@@ -35,16 +33,15 @@ function Create() {
         }, true);
     }, [content]);
 
+    console.log(content)
+
     return (
         <div>
             <CreateTemplate
                 data={content}
                 setData={setContent}
                 onCreate={onCreate}
-                headers={[
-                    {key: 'title', label: 'Title'},
-                    {key: 'content', label: 'Content'},
-                ]}
+                headers={props.columns.filter((col: TableDataColumn) => col.required)}
                 isPossibleCreate={isPossibleCreate}
                 title={'Create'}
             />

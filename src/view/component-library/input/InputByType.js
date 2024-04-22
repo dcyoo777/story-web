@@ -1,6 +1,6 @@
 import { useMemo, useRef } from 'react';
 import './InputByType.scss';
-import Select from '../input/Select';
+import Select from './Select';
 // import { UTCTimestamp } from '../../../util/timeUtils';
 import {UTCTimestamp} from "../../../util/timeUtils";
 import { useTranslation } from 'react-i18next';
@@ -9,7 +9,7 @@ import MobileView from '../MobileView';
 import { addComma, getKeyByValue } from '../../../util/commonUtils';
 import { FileUploader } from 'react-drag-drop-files';
 // import uploadFileIcon from 'view/assets/image/upload-file.png';
-import TimeInput from '../input/TimeInput';
+import TimeInput from './TimeInput';
 // import { addColon } from '../../../util/parseUtil';
 
 const VALID_PROPS_KEY = [

@@ -1,0 +1,95 @@
+.story {
+  position: relative;
+
+  &-border {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    //background-color: #7f879e;
+    z-index: 12;
+    transition: background-color 0.2s;
+    touch-action: none;
+
+    &:hover {
+      //background-color: orange;
+      cursor: row-resize;
+    }
+
+    &.start {
+      //top: -5px;
+    }
+
+    &.end {
+      //bottom: -5px;
+    }
+
+  }
+
+  &-body {
+    //position: absolute;
+    //display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid 1px #e0e0e0;
+    box-shadow: 4px 4px 4px #e0e0e0;
+    transition: border 0.2s;
+    overflow: hidden;
+
+    &:hover {
+      //border: solid 1px orange;
+      cursor: all-scroll;
+    }
+    //z-index: 2;
+
+    &.selected {
+      position: absolute;
+      width: calc(100% - 40px);
+      height: calc(100% - 40px);
+      z-index: 100;
+      background: white;
+    }
+
+
+    &-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    &-title {
+      //margin-top: 5px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    &-content {
+      margin-top: 10px;
+      font-size: 1em;
+      color: #a0a0a0;
+    }
+
+    &-place {
+      margin-top: 10px;
+      font-size: 1em;
+      color: #a0a0a0;
+    }
+
+    .edit-button{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #a0a0a0;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    &-input-container{
+      display: flex;
+      flex-direction: column;
+      //margin-top: 10px;
+    }
+  }
+
+}
