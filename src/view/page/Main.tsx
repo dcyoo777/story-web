@@ -1,9 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import './Main.scss'
-import {Story, StoryInterface, storyReq} from "../../service/story/story";
+import {StoryInterface, storyReq} from "../../service/story/story";
 import Day from "../component/Day";
 import dayjs from "dayjs";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import cn from "classnames";
 
 Main.propTypes = {
@@ -16,10 +16,14 @@ function Main() {
 
     const [items, setItems] = useState<StoryInterface[]>([]);
 
-    const refresh = useCallback(() => {storyReq.getAll({
-        startFrom: "2024-04-21 00:00:00",
-        startTo: "2024-04-22 00:00:00",
-    }).then(setItems)}, [])
+    const refresh = useCallback(async () => {
+        const response = await storyReq.getAll({
+            startFrom: "2024-04-21 00:00:00",
+            startTo: "2024-04-22 00:00:00",
+        })
+        setItems(response);
+        return response;
+    }, [])
 
     useEffect(() => {
         refresh();

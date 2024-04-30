@@ -9,7 +9,7 @@ function CommonRouter({name, outlet}: {name: string, outlet: React.ReactNode}) {
     return (
         <Route path={`${name}/`} element={outlet}>
             <Route path="" index element={<List />} />
-            <Route path=":storyId" element={<Detail />} />
+            <Route path=":id" element={<Detail />} />
             <Route path="create" element={<Create />} />
             <Route path="update" element={<Edit />} />
         </Route>

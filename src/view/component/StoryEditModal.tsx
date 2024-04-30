@@ -37,7 +37,7 @@ function StoryEditModal({content, setContent, isEdit, setIsEdit, refresh}: Story
                onRequestClose={() => setIsEdit(false)}
                ariaHideApp={false}
                className={cn("story-edit-modal")}
-               style={{ overlay: { zIndex: 100, display: 'flex', flexDirection: 'column', justifyContent: 'center' } }}>
+               style={{ overlay: { zIndex: 100, display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.3)' } }}>
             {StoryKeys.map((key) => <div className={cn("story-edit-modal-row")} key={`input_${key}`}>
                 <label htmlFor={key}>
                     <div className={cn(`story-edit-modal-row-label`)}>{key}</div>

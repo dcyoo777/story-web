@@ -18,7 +18,7 @@ function RootRouter() {
             <Route path="admin/" element={<Layout />} >
                 <Route path={`story/`} element={<StoryContext />}>
                     <Route path="" index element={<List />} />
-                    <Route path=":storyId/" element={<Item />}>
+                    <Route path=":id/" element={<Item />}>
                         <Route index element={<Detail />} />
                         <Route path="edit" element={<Edit />} />
                     </Route>

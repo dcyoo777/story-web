@@ -19,7 +19,7 @@ export type TableData = {
     getOneByPk: Function,
     createItem: Function,
     updateItem: Function,
-    deleteItem: Function,
+    deleteItem: Function
 }
 
 function StoryContext() {

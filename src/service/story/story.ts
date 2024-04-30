@@ -1,23 +1,19 @@
 import {CommonRequests} from '../../server/commonRequests'
-
-export type NullString = {
-    string: string,
-    valid: boolean,
-}
+import _ from "lodash";
 
 export interface StoryFromServer {
     storyId: number
     title: string
-    content: NullString
-    place: NullString
-    start: NullString
-    end: NullString
+    content: string
+    place: string
+    start: string
+    end: string
     createdAt: string
     updatedAt: string
 }
 
 export interface StoryInterface {
-    storyId?: number
+    id?: string
     title: string
     content?: string
     place?: string
@@ -29,7 +25,7 @@ export interface StoryInterface {
 
 export class Story implements StoryInterface{
 
-    storyId?: number
+    id?: string
     title: string
     content?: string
     place?: string
@@ -38,8 +34,8 @@ export class Story implements StoryInterface{
     createdAt?: string
     updatedAt?: string
 
-    constructor({ storyId, title, content, place, start, end, createdAt, updatedAt }: StoryInterface) {
-        this.storyId = storyId
+    constructor({ id, title, content, place, start, end, createdAt, updatedAt }: StoryInterface) {
+        this.id = id
         this.title = title
         this.content = content
         this.place = place
@@ -64,7 +60,7 @@ export class Story implements StoryInterface{
 
         if (isValid) {
             return new Story({
-                storyId: item.storyId,
+                id: item.id,
                 title: item.title,
                 content: item.content,
                 createdAt: item.createdAt,
@@ -74,13 +70,7 @@ export class Story implements StoryInterface{
     }
 
     static parseFromServer(item: StoryFromServer): Story{
-        return new Story({
-            ...item,
-            content: item.content.valid ? item.content.string : undefined,
-            place: item.place.valid ? item.place.string : undefined,
-            start: item.start.valid ? item.start.string : undefined,
-            end: item.end.valid ? item.end.string : undefined,
-        })
+        return new Story({...item})
     }
 }
 
@@ -92,7 +82,7 @@ export class StoryReq extends CommonRequests {
 
     async getAll(query?: any): Promise<Story[]> {
         const response = await super.getAll(query);
-        return response?.data?.result?.map(Story.parseFromServer);
+        return _.sortBy(response?.data?.result?.map(Story.parseFromServer), "start");
     }
 
     async getOneByPk(pk: number): Promise<Story> {
@@ -100,12 +90,12 @@ export class StoryReq extends CommonRequests {
         return Story.parseFromServer(response?.data?.result)
     }
 
-    async create(story: Story): Promise<Story> {
-        return Story.parseFromServer(await super.create(story))
+    async create(story: Story): Promise<any> {
+        return await super.create(story)
     }
 
     async update(story: StoryInterface): Promise<any> {
-        return await super.update(story.storyId, (new Story(story)).toUpdate());
+        return await super.update(story.id, (new Story(story)).toUpdate());
     }
 
 }
