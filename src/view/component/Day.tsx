@@ -7,13 +7,14 @@ import DayStories from "./DayStories";
 import {MAX_HEIGHT, MAX_OFFSET, roundOffset, TIMESTAMP_FORMAT} from "../../util/timelineUtil";
 
 export type DayProps = {
-    date: string,
+    date: dayjs.Dayjs,
     stories: StoryInterface[],
     setStories: (stories: any) => void,
     refresh: Function,
+    indicator?: boolean,
 }
 
-function Day({date, stories, setStories, refresh}: DayProps) {
+function Day({date, stories, setStories, refresh, indicator = false}: DayProps) {
 
     const [isLoaded, setIsLoaded] = useState(true)
 
@@ -34,8 +35,8 @@ function Day({date, stories, setStories, refresh}: DayProps) {
 
         const response = await storyReq.create(new Story({
             title: "New Story",
-            start: dayjs(date).add(start, 'minute').format(TIMESTAMP_FORMAT),
-            end: dayjs(date).add(end, 'minute').format(TIMESTAMP_FORMAT),
+            start: date.add(start, 'minute').format(TIMESTAMP_FORMAT),
+            end: date.add(end, 'minute').format(TIMESTAMP_FORMAT),
             content: "",
             place: "",
         }))
@@ -46,19 +47,15 @@ function Day({date, stories, setStories, refresh}: DayProps) {
     }, [date, refreshDay])
 
     return (
-        <div className={cn("day")}>
-            <h2 className={cn("day-header-date")}>{date}</h2>
-            <div className={cn("day-timeline")} onDoubleClick={onClickTimeline}>
-                {new Array(25).fill(0).map((_: any, i) => <div className={cn("indicator")}
-                                                               style={{top: i * 100 - 5}}
-                                                               key={`q${i}`}>
-                    <div className={cn("indicator-time")}>{i}</div>
-                    <div className={cn("indicator-line")}/>
-                </div>)}
-                {isLoaded && <DayStories date={date} stories={stories} setStories={setStories} refresh={refreshDay} />}
-            </div>
+        <div className={cn("day")} onDoubleClick={onClickTimeline}>
+            {new Array(25).fill(0).map((_: any, i) => <div className={cn("indicator")}
+                                                           style={{top: i * 100 - 5}}
+                                                           key={`q${i}`}>
+                {indicator && <div className={cn("indicator-time")}>{i}</div>}
+                <div className={cn("indicator-line", indicator ? "" : "fill")}/>
+            </div>)}
+            {isLoaded && <DayStories stories={stories} setStories={setStories} refresh={refreshDay} />}
         </div>
-
     );
 }
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import './Day.scss'
 import cn from "classnames";
 import {animated, config, useSprings} from "@react-spring/web";
@@ -8,8 +8,7 @@ import StoryView from "./StoryView";
 import dayjs from "dayjs";
 import {dayOffset, MAX_HEIGHT, MAX_OFFSET, MIN_TIME, roundOffset, TIMESTAMP_FORMAT} from "../../util/timelineUtil";
 
-export type DayProps = {
-    date: string,
+export type DayStoriesProps = {
     stories: StoryInterface[],
     setStories: (stories: any) => void,
     refresh: Function,
@@ -63,13 +62,24 @@ const fnEnd =
                 }
         }
 
-function DayStories({date, stories, setStories, refresh}: DayProps) {
+function DayStories({stories, setStories, refresh}: DayStoriesProps) {
 
     const [items, setItems] = useState<StoryInterface[]>(stories);
 
     const [springsBody, apiBody] = useSprings(items?.length, fnBody(items))
     const [springsStart, apiStart] = useSprings(items?.length, fnStart(items))
     const [springsEnd, apiEnd] = useSprings(items?.length, fnEnd(items))
+
+    const updateStoriesState = useCallback((updatedStory: StoryInterface) => {
+        setStories((prev: StoryInterface[]) => {
+            return prev.map((story) => {
+                if (story.id === updatedStory.id) {
+                    return updatedStory
+                }
+                return story
+            })
+        })
+    }, [stories, setStories])
 
     const bind = useDrag(({args: [originalIndex], active, movement: [, y]}) => {
         setItems(stories?.map((story, i) => {
@@ -104,10 +114,9 @@ function DayStories({date, stories, setStories, refresh}: DayProps) {
         apiEnd.start(fnEnd(items, active, originalIndex));
         if (!active && items[originalIndex].start !== stories[originalIndex].start && items[originalIndex].end !== stories[originalIndex].end) {
             storyReq.update(items[originalIndex]).then((res) => {
-                setStories(items)
-                // if (res.data.result) {
-                //     refresh()
-                // }
+                if (res.data.result) {
+                    updateStoriesState(items[originalIndex])
+                }
             })
         }
     })
@@ -140,10 +149,9 @@ function DayStories({date, stories, setStories, refresh}: DayProps) {
         apiBody.start(fnBody(items, active, originalIndex));
         if (!active && items[originalIndex].start !== stories[originalIndex].start) {
             storyReq.update(items[originalIndex]).then((res) => {
-                setStories(items)
-                // if (res.data.result) {
-                //     refresh()
-                // }
+                if (res.data.result) {
+                    updateStoriesState(items[originalIndex])
+                }
             })
         }
     })
@@ -175,10 +183,9 @@ function DayStories({date, stories, setStories, refresh}: DayProps) {
         apiBody.start(fnBody(items, active, originalIndex));
         if (!active && items[originalIndex].end !== stories[originalIndex].end) {
             storyReq.update(items[originalIndex]).then((res) => {
-                setStories(items)
-                // if (res.data.result) {
-                //     refresh()
-                // }
+                if (res.data.result) {
+                    updateStoriesState(items[originalIndex])
+                }
             })
         }
     })
@@ -188,7 +195,7 @@ function DayStories({date, stories, setStories, refresh}: DayProps) {
     }, [stories]);
 
     return (
-        <div style={{marginLeft: 20}} onClick={(e) => {
+        <div onClick={(e) => {
             e.stopPropagation()
         }}>
             {stories.map((_, i) => (

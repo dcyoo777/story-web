@@ -3,7 +3,7 @@ import './Calendar.scss';
 import dayjs from 'dayjs';
 import weekday from 'dayjs/plugin/weekday'; // load on demand
 import classNames from 'classnames'; // use plugin
-import i18n from 'locales';
+import i18n from '../../../locales';
 dayjs.extend(weekday);
 
 const WEEKDAYS = [

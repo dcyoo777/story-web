@@ -20,6 +20,7 @@
     "dotenv": "^16.4.5",
     "env-cmd": "^10.1.0",
     "i18next": "^23.10.1",
+    "locales": "^0.0.2",
     "lodash": "^4.17.21",
     "lodash-move": "^1.1.1",
     "lodash.clamp": "^4.0.3",

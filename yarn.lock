@@ -6693,6 +6693,11 @@
   "resolved" "https://registry.npmjs.org/loader-utils/-/loader-utils-3.2.1.tgz"
   "version" "3.2.1"
 
+"locales@^0.0.2":
+  "integrity" "sha512-AldVJl4YPLBNk06CCatRTKtRlOwV877mQpDdi5NHhr3vl4MjbseLDC/2wr5owGS/fcO2/O0Gpgd3XNjljv4eAQ=="
+  "resolved" "https://registry.npmjs.org/locales/-/locales-0.0.2.tgz"
+  "version" "0.0.2"
+
 "locate-path@^3.0.0":
   "integrity" "sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A=="
   "resolved" "https://registry.npmjs.org/locate-path/-/locate-path-3.0.0.tgz"

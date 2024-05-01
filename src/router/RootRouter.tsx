@@ -2,7 +2,6 @@ import React from 'react';
 import {Route, Routes} from 'react-router-dom'
 import Main from "../view/page/Main";
 import Layout from "../view/component/Layout";
-import CommonRouter from "./CommonRouter";
 import StoryContext from "../service/story/StoryContext";
 import List from "../view/template/List";
 import Detail from "../view/template/Detail";
@@ -10,11 +9,12 @@ import Create from "../view/template/Create";
 import Edit from "../view/template/Edit";
 import Item from "../view/template/Item";
 import UserContext from "../service/user/UserContext";
+import DayPage from "../view/page/DayPage";
+import WeekPage from "../view/page/WeekPage";
 
 function RootRouter() {
     return (
         <Routes>
-            <Route path="" index element={<Main />} />
             <Route path="admin/" element={<Layout />} >
                 <Route path={`story/`} element={<StoryContext />}>
                     <Route path="" index element={<List />} />
@@ -32,6 +32,11 @@ function RootRouter() {
                     </Route>
                     <Route path="create" element={<Create />} />
                 </Route>
+            </Route>
+            <Route path="*" element={<Main />} >
+                <Route index element={<DayPage />}/>
+                <Route path="day" element={<DayPage />}/>
+                <Route path="week" element={<WeekPage />}/>
             </Route>
         </Routes>
     );
