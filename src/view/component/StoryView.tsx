@@ -1,10 +1,9 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useContext} from 'react';
 import './StoryView.scss'
 import {Story, storyReq} from "../../service/story/story";
 import cn from "classnames";
-import useEditContent from "../../hook/useEditContent";
-import StoryEditModal from "./StoryEditModal";
 import { MdEdit, MdDelete } from "react-icons/md";
+import {StoryEditContext} from "../page/Main";
 
 type StoryViewProps = {
     story: Story | any,
@@ -15,11 +14,11 @@ const StoryKeys = ["title", "place", "content"]
 
 function StoryView({story, refresh}: StoryViewProps) {
 
-    const {content, setContent, isEdit, setIsEdit} = useEditContent(story);
+    const {setEditingStory} = useContext(StoryEditContext);
 
     const onEdit = useCallback(() => {
-        setIsEdit(true);
-    }, [setIsEdit]);
+        setEditingStory(story)
+    }, [story, setEditingStory]);
 
     const onDelete = useCallback(async () => {
         const response = await storyReq.delete(story.id)
@@ -32,7 +31,6 @@ function StoryView({story, refresh}: StoryViewProps) {
 
     return (
         <div className={cn("story-body")}>
-            <StoryEditModal content={content} setContent={setContent} isEdit={isEdit} setIsEdit={setIsEdit} refresh={refresh}/>
             <button onClick={onEdit} className={cn("edit-button")}>
                 <MdEdit fill={'grey'}/>
             </button>

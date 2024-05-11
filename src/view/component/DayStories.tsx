@@ -79,7 +79,7 @@ function DayStories({stories, setStories, refresh}: DayStoriesProps) {
                 return story
             })
         })
-    }, [stories, setStories])
+    }, [setStories])
 
     const bind = useDrag(({args: [originalIndex], active, movement: [, y]}) => {
         setItems(stories?.map((story, i) => {

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useMemo, useState} from 'react';
 import './WeekPage.scss'
 import {StoryInterface, storyReq} from "../../service/story/story";
 import dayjs from "dayjs";
@@ -7,7 +7,8 @@ import i18n from "../../locales";
 import {midnight} from "../../util/timelineUtil";
 import Day from "../component/Day";
 import cn from "classnames";
-import {useSearchParams} from "react-router-dom"; // load on demand
+import {useSearchParams} from "react-router-dom";
+import {StoryEditContext} from "./Main"; // load on demand
 dayjs.extend(weekday);
 
 const WEEKDAYS = [
@@ -26,6 +27,8 @@ WeekPage.propTypes = {
 function WeekPage() {
 
     const [searchParams, setSearchParams] = useSearchParams();
+
+    const {setRefresh} = useContext(StoryEditContext);
 
     const [items, setItems] = useState<StoryInterface[]>([]);
 
@@ -50,14 +53,15 @@ function WeekPage() {
     }, [weekFirstDay])
 
     useEffect(() => {
+        setRefresh(refresh)
         refresh().finally();
-    }, [refresh]);
+    }, [refresh, setRefresh]);
 
     return (
         <div id={"WeekPage"}>
             {new Array(7).fill(0).map((_, i) => {
                 const indexDay = weekFirstDay.add(i, 'day')
-                return <div className={cn('weekday')}>
+                return <div className={cn('weekday')} key={`weekday_${i}`}>
                     <h3 className={cn('weekday-title')}>{indexDay.date()}({WEEKDAYS[i]})</h3>
                     <Day date={indexDay}
                          stories={items.filter((story) => dayjs(story.start).isSame(indexDay, 'day'))}

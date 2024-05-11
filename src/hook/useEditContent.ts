@@ -16,6 +16,10 @@ const useEditContent = (initialContent: any, isCreate = false): EditContent => {
         }
     }, [content, isEdit]);
 
+    useEffect(() => {
+        setContent(initialContent)
+    }, [initialContent]);
+
     return {
         content,
         setContent,
