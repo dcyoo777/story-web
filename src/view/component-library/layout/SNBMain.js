@@ -102,13 +102,13 @@ function SNB(props) {
             {
                 title: t('user'),
                 icon: userIcon,
-                link: '/user',
+                link: '/appUser',
                 id: 5,
                 isSubOpen: false,
                 sub: [
                     {
                         title: t('user'),
-                        link: '/user/manage/list',
+                        link: '/appUser/manage/list',
                         id: 501,
                     },
 
@@ -116,22 +116,22 @@ function SNB(props) {
                         ? [
                             {
                                 title: t('qualification'),
-                                link: '/user/qualification/list',
+                                link: '/appUser/qualification/list',
                                 id: 502,
                             },
                             {
                                 title: t('manager'),
-                                link: '/user/manager/list',
+                                link: '/appUser/manager/list',
                                 id: 503,
                             },
                             {
                                 title: t('service-restriction'),
-                                link: '/user/service-restriction/list',
+                                link: '/appUser/service-restriction/list',
                                 id: 504,
                             },
                             {
                                 title: t('transaction-restriction'),
-                                link: '/user/transaction-restriction/list',
+                                link: '/appUser/transaction-restriction/list',
                                 id: 505,
                             },
                         ]
@@ -414,7 +414,7 @@ function SNB(props) {
                 ],
             };
         }
-        if (location.pathname.includes('/user/restriction')) {
+        if (location.pathname.includes('/appUser/restriction')) {
             return {
                 title: t('restriction'),
                 menuList: [

@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect} from 'react';
 import {useNavigate, useOutletContext} from "react-router-dom";
-import {TableData} from "../../service/story/StoryContext";
+import {TableData} from "../../service/story/storyContext";
 import {EditContent} from "../../hook/useEditContent";
 import DataView from "../component-library/data/DataView";
 import ButtonWrapper from "../component-library/ButtonWrapper";

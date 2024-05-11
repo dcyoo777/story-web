@@ -34,7 +34,7 @@ function Day({date, stories, setStories, refresh, indicator = false}: DayProps) 
         const end = start + 60
 
         const response = await storyReq.create(new Story({
-            title: "New Story",
+            title: "New AppUser",
             start: date.add(start, 'minute').format(TIMESTAMP_FORMAT),
             end: date.add(end, 'minute').format(TIMESTAMP_FORMAT),
             content: "",

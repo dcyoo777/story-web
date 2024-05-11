@@ -2,7 +2,7 @@ import React, {useCallback, useMemo} from 'react';
 import CreateTemplate from "../component-library/template/CreateTemplate";
 import {useNavigate, useOutletContext} from "react-router-dom";
 import useEditContent from "../../hook/useEditContent";
-import {TableDataColumn} from "../../service/story/StoryContext";
+import {TableDataColumn} from "../../service/story/storyContext";
 
 function Create() {
 

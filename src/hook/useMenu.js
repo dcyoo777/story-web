@@ -104,13 +104,13 @@ const useMenu = () => {
                 {
                     title: t('user'),
                     icon: userIcon,
-                    link: '/user',
+                    link: '/appUser',
                     root: 'user',
                     id: 5,
                     sub: [
                         {
                             title: t('manage'),
-                            link: '/user/manage/list',
+                            link: '/appUser/manage/list',
                             subRoot: 'manage',
                             id: 501,
                         },
@@ -118,25 +118,25 @@ const useMenu = () => {
                             [
                                 {
                                     title: t('qualification'),
-                                    link: '/user/qualification/list',
+                                    link: '/appUser/qualification/list',
                                     subRoot: 'qualification',
                                     id: 502,
                                 },
                                 {
                                     title: t('manager'),
-                                    link: '/user/manager/list',
+                                    link: '/appUser/manager/list',
                                     subRoot: 'manager',
                                     id: 503,
                                 },
                                 {
                                     title: t('service-restriction'),
-                                    link: '/user/service-restriction/list',
+                                    link: '/appUser/service-restriction/list',
                                     subRoot: 'service-restriction',
                                     id: 504,
                                 },
                                 {
                                     title: t('transaction-restriction'),
-                                    link: '/user/transaction-restriction/list',
+                                    link: '/appUser/transaction-restriction/list',
                                     subRoot: 'transaction-restriction',
                                     id: 505,
                                 },

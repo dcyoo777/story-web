@@ -40,13 +40,13 @@ function QualificationAbstract(props) {
                             key={`qualification_${qualification.qualificationId}`}
                             to={`/user/qualification/${qualification.qualificationId}/info`}>
                             <div className="qualification-abs-item-label">
-                                {t('user-name')}
+                                {t('appUser-name')}
                             </div>
                             <div className="qualification-abs-item-value">
                                 {qualification.user}
                             </div>
                             <div className="qualification-abs-item-label">
-                                {t('proposed-user-role')}
+                                {t('proposed-appUser-role')}
                             </div>
                             <div className="qualification-abs-item-value">
                                 {qualification.role}

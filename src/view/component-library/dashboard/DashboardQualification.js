@@ -27,7 +27,7 @@ function DashboardQualification(props) {
 
     const QualificationRequest = ({count}) => {
         return (
-            <div className='qualification-request' onClick={() => navigate('/user/qualification/list')}>
+            <div className='qualification-request' onClick={() => navigate('/appUser/qualification/list')}>
                 {`${count}건의 요청이 있어요`}
             </div>
         )
